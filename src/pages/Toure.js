@@ -3,7 +3,7 @@ import CardHeader from '@material-tailwind/react/CardHeader';
 import CardBody from '@material-tailwind/react/CardBody';
 import CardFooter from '@material-tailwind/react/CardFooter';
 import H5 from '@material-tailwind/react/Heading5';
-import InputIcon from '@material-tailwind/react/InputIcon';
+import Input from "@material-tailwind/react/Input";
 import Checkbox from '@material-tailwind/react/Checkbox';
 import Button from '@material-tailwind/react/Button';
 import DefaultNavbar from 'components/DefaultNavbar';
@@ -38,7 +38,7 @@ export default function Toure() {
     e.preventDefault();
     if (fileName) {
       const imageName = makeid(10)
-      const uploadTask = storage.ref(`mages/${imageName}.jpg`)
+      const uploadTask = storage.ref(`tour/${imageName}.jpg`)
           .put(fileName)
 
       uploadTask.on("state_change", (snapshot) => {
@@ -49,13 +49,13 @@ export default function Toure() {
 
       }, () => {
           /////get Image Url
-          storage.ref("mages").child(`${imageName}.jpg`)
+          storage.ref("tour").child(`${imageName}.jpg`)
               .getDownloadURL()
 
               .then((imageUrl) => {
                   fireDB.collection("TourGuider").add({
                       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-                      photoUrl: imageUrl,
+                     photo: imageUrl,
                       name:name,
                       email:email,
                       phone:phone,
@@ -67,7 +67,7 @@ export default function Toure() {
                   })
           
                   
-                  history.push("/")
+                  
                 
               })
 
@@ -90,25 +90,25 @@ export default function Toure() {
                     <form onSubmit={handleSubmit}>
                     <CardBody>
                         
-                    <div className="mb-2 px-4 ">
-                            <InputIcon
+                    {/* <div className="mb-2 px-4 ">
+                            <Input
                                 type="file"
                                 color="lightBlue"
                                 onchange={onChangeFile}
                                
                             />
-                        </div>
-                        <div className="mb-2 px-4 ">
-                            <InputIcon
+                        </div> */}
+                        {/* <div className="mb-2 px-4 ">
+                            <Input
                                 type="text"
                                 color="lightBlue"
                                 placeholder="Name "
                                 iconName="person"
                                 onchange={(e)=>setName(e.target.value)}
                             />
-                        </div>
+                        </div> */}
                         <div className="mb-2 px-4 ">
-                            <InputIcon
+                            <Input
                                 iconName='person'
                                 type="email"
                                 color="lightBlue"
@@ -119,7 +119,7 @@ export default function Toure() {
                             />
                         </div>
                         <div className="mb-2 px-4 ">
-                            <InputIcon
+                            <Input
                                 iconName='person'
                                 type="email"
                                 color="lightBlue"
@@ -130,7 +130,7 @@ export default function Toure() {
                             />
                         </div>
                         <div className="px-4">
-                            <InputIcon
+                            <Input
                                 
                                 color="lightBlue"
                                 placeholder="Message"

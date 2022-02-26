@@ -25,7 +25,7 @@ export default function WorkingSection({places}) {
                     </CardHeader>
             <div className="container max-w-7xl mx-auto px-4 py-5 mt-10">
                 <div className="flex flex-wrap relative z-50 ">
-                    {places.slice(1,4).map(place=>{
+                    {places.map(place=>{
                        return(
                            
                         <StatusCard  key={place.id}>
@@ -87,7 +87,7 @@ export default function WorkingSection({places}) {
 
                     <div className="w-full md:w-4/12 px-4 mx-auto flex justify-center mt-24 lg:mt-0">
                         <Card>
-                            <CardImage alt="Card Image" src="https://firebasestorage.googleapis.com/v0/b/geo-loaction-6334d.appspot.com/o/DSC04151.jpg?alt=media&token=b6490711-8b9f-43dd-bc61-b028552a4290" />
+                            <CardImage alt="Card Image" src="https://firebasestorage.googleapis.com/v0/b/geo-loaction-6334d.appspot.com/o/DSC04151.jpg?alt=media&token=07f3721a-e23b-4944-94ae-90824aacbdd8" />
                             <CardBody>
                                 <H6 color="gray">Top Notch Services</H6>
                                 <Paragraph color="blueGray">
